@@ -2,12 +2,15 @@ const express = require("express");
 const path = require("path");
 const http = require("http");
 const socketIO = require("socket.io");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
-server.listen(3000, () => {
+server.listen(process.env.PORT, () => {
   console.log("Servidor rodando");
 });
 
